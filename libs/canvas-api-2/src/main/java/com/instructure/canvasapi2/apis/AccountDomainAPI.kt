@@ -29,19 +29,19 @@ import retrofit2.http.Url
 
 
 object AccountDomainAPI {
-    private const val DEFAULT_DOMAIN = "https://canvas.instructure.com/"
+    private const val DEFAULT_DOMAIN = "https://isu.tspu.tj/" //"https://canvas.instructure.com/"
 
     interface AccountDomainInterface {
         @GET
         fun next(@Url nextURL: String): Call<List<AccountDomain>>
 
-        @GET("accounts/search")
+        //@GET("accounts/search")
+        @GET("domains/search")
         fun campusSearch(@Query("search_term") term: String): Call<List<AccountDomain>>
     }
 
     fun searchAccounts(query: String?, callback: StatusCallback<List<AccountDomain>>) {
         if (query == null || query.length < 3) return
-
         val adapter = RestBuilder(callback)
         val params = RestParams(
                 shouldIgnoreToken = true,

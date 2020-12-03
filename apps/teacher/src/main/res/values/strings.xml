@@ -25,6 +25,7 @@
     <string name="tab_assignments">Assignments</string>
     <string name="tab_profile">Profile</string>
     <string name="tab_people">People</string>
+    <string name="tab_point_journal">Point Journal</string>
     <string name="tab_quizzes">Quizzes</string>
     <string name="tab_discussions">Discussions</string>
     <string name="tab_announcements">Announcements</string>
@@ -64,6 +65,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!-- Uchproc -->
+    <string name="academic_weeks">Academic weeks</string>
     <!-- Compose Message -->
     <string name="no_subject">(no subject)</string>
     <string name="compose_message">Compose message</string>
@@ -359,7 +362,7 @@
     <string name="incomplete_grade">Incomplete</string>
     <string name="not_graded">Not Graded</string>
     <string name="excused">Excused</string>
-    <string formatted="false" name="grade_value_format">%s %s</string>
+    <string name="grade_value_format" formatted="false">%s %s</string>
     <string name="grade_value_format_talk_back">%1$s out of %2$s</string>
     <string name="publish">Publish</string>
     <string name="error_saving_assignment">An error occurred trying to save the assignment. Try again.</string>
@@ -414,7 +417,7 @@
         <item>@string/gpa_scale</item>
     </string-array>
 
-  <string name="not_a_teacher">Not a teacher?</string>
+    <string name="not_a_teacher">Not a teacher?</string>
     <string name="not_a_teacher_tap_to_visit_play_store">One of our other apps might be a better fit. Tap one to visit the Play Store.</string>
 
     <string name="sg_tab_grade">Grade</string>
@@ -888,4 +891,12 @@
     <string name="gauge">Gauge</string>
     <string name="ltiLaunchFailure">This LTI tool could not be loaded at this time.</string>
     <string name="downloading">Downloading…</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_week_students_point">WeekStudentsPointActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>

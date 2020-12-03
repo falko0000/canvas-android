@@ -203,6 +203,7 @@ dependencies {
 
     /* Mobius */
     implementation Libs.MOBIUS_CORE
+    implementation 'androidx.wear:wear:1.0.0'
     testImplementation Libs.MOBIUS_TEST
     implementation Libs.MOBIUS_ANDROID
     implementation Libs.MOBIUS_EXTRAS
@@ -264,6 +265,7 @@ dependencies {
 
     /* Job Scheduler */
     implementation Libs.FIREBASE_JOB_DISPATCHER
+    compileOnly 'com.google.android.wearable:wearable:2.5.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

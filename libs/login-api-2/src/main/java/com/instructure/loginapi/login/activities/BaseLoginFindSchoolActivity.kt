@@ -91,6 +91,7 @@ abstract class BaseLoginFindSchoolActivity : AppCompatActivity(), ErrorReportDia
                 domains.add(3, createAccountForDebugging("mobileqat.instructure.com"))
                 domains.add(4, createAccountForDebugging("clare.instructure.com"))
                 domains.add(5, createAccountForDebugging("mobileqa.beta.instructure.com"))
+                domains.add(6, createAccountForDebugging("https://isu.tspu.tj"))
             }
 
             if (mDomainAdapter != null) {
@@ -216,7 +217,7 @@ abstract class BaseLoginFindSchoolActivity : AppCompatActivity(), ErrorReportDia
 
     private fun validateDomain(accountDomain: AccountDomain) {
         var url: String? = accountDomain.domain!!.toLowerCase().replace(" ", "")
-
+        println(accountDomain.domain)
         //if the user enters nothing, try to connect to canvas.instructure.com
         if (url!!.trim { it <= ' ' }.isEmpty()) {
             url = "canvas.instructure.com"
@@ -242,7 +243,6 @@ abstract class BaseLoginFindSchoolActivity : AppCompatActivity(), ErrorReportDia
         }
 
         accountDomain.domain = url
-
         val intent = signInActivityIntent(accountDomain)
         intent.putExtra(Const.CANVAS_LOGIN, getIntent().extras!!.getInt(Const.CANVAS_LOGIN, 0))
         startActivity(intent)

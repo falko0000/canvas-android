@@ -41,6 +41,7 @@ object Const {
     const val COURSE = "course"
     const val DISCUSSION_ENTRY = "discussion_entry"
     const val DISCUSSION_HEADER = "discussion_header"
+    const val UCHPROC_POINT_JOURNAL = "uchproc_point_journal"
     const val DISCUSSION_TOPIC = "discussion_topic"
     const val DISCUSSION_ID = "discussion_id"
     const val FEATURE_NAME = "featureName"

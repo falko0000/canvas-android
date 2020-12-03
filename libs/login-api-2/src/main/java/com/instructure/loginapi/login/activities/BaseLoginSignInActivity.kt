@@ -95,6 +95,7 @@ abstract class BaseLoginSignInActivity : AppCompatActivity(), OnAuthenticationSe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        println("BASE LOGIN START!!!")
         setContentView(R.layout.activity_sign_in)
         canvasLogin = intent!!.extras!!.getInt(Const.CANVAS_LOGIN, 0)
         setupViews()
@@ -212,6 +213,7 @@ abstract class BaseLoginSignInActivity : AppCompatActivity(), OnAuthenticationSe
     private fun beginSignIn(accountDomain: AccountDomain) {
         val url = accountDomain.domain
         if (canvasLogin == MOBILE_VERIFY_FLOW) { //Skip Mobile Verify
+            println("START SIGN IN IF!!!")
             val view = LayoutInflater.from(this@BaseLoginSignInActivity).inflate(R.layout.dialog_skip_mobile_verify, null)
             val protocolEditText = view.findViewById<EditText>(R.id.mobileVerifyProtocol)
             val clientIdEditText = view.findViewById<EditText>(R.id.mobileVerifyClientId)
@@ -240,6 +242,7 @@ abstract class BaseLoginSignInActivity : AppCompatActivity(), OnAuthenticationSe
             }
             dialog.show()
         } else {
+            println("START SIGN IN ELSE!!!")
             mobileVerify(url, mobileVerifyCallback)
         }
     }
@@ -267,8 +270,14 @@ abstract class BaseLoginSignInActivity : AppCompatActivity(), OnAuthenticationSe
     private var mobileVerifyCallback: StatusCallback<DomainVerificationResult> =
         object : StatusCallback<DomainVerificationResult>() {
             override fun onResponse(response: Response<DomainVerificationResult>, linkHeaders: LinkHeaders, type: ApiType) {
+                println("TYPE " + type.isCache)
                 if (type.isCache) return
+                println("MESSAGE " + response.message())
+                println("HEADERS " + response.headers())
+                println("TO STRING " + response.toString())
                 val domainVerificationResult = response.body()
+                println("RESPONS RESULT " + domainVerificationResult.toString())
+                println("HEADERS LINK " + linkHeaders)
                 if (domainVerificationResult!!.result === DomainVerificationResult.DomainVerificationCode.Success) {
                     //Domain is now verified.
                     //save domain to the preferences.
@@ -368,7 +377,8 @@ abstract class BaseLoginSignInActivity : AppCompatActivity(), OnAuthenticationSe
             //Skip mobile verify
             builder.appendQueryParameter("redirect_uri", "urn:ietf:wg:oauth:2.0:oob")
         } else {
-            builder.appendQueryParameter("redirect_uri", "https://canvas.instructure.com/login/oauth2/auth")
+           // builder.appendQueryParameter("redirect_uri", "https://canvas.instructure.com/login/oauth2/auth")
+            builder.appendQueryParameter("redirect_uri", "https://isu.tspu.tj/login/oauth2/auth")
         }
 
         //If an authentication provider is supplied we need to pass that along. This should only be appended if one exists.

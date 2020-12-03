@@ -161,6 +161,7 @@ class PeopleListFragment : BaseSyncFragment<User, PeopleListPresenter, PeopleLis
                     showToast(R.string.errorIsDesigner)
                     return
                 }
+                println(model.toString())
                 val bundle = StudentContextFragment.makeBundle(model.id, canvasContext.id, true)
                 RouteMatcher.route(requireContext(), Route(null, StudentContextFragment::class.java, canvasContext, bundle))
             }

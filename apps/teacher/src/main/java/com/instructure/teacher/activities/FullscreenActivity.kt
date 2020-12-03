@@ -77,7 +77,6 @@ class FullscreenActivity : BaseAppCompatActivity(), RCEFragment.RCEFragmentCallb
 
     override fun handleRoute(route: Route) {
         mRoute = route
-
         if (mRoute?.canvasContext != null && mRoute?.canvasContext?.isCourseOrGroup == true) {
             setupWithCanvasContext(mRoute?.canvasContext)
         } else {

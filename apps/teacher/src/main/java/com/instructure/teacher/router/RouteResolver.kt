@@ -24,7 +24,7 @@ object RouteResolver {
      * Pass in a route and a course, get a fragment back!
      */
     fun getFullscreenFragment(canvasContext: CanvasContext?, route: Route): Fragment? {
-
+        //println("Canvas ctx " + canvasContext.toString())
         return if (canvasContext == null) {
             if (route.primaryClass != null) {
                 getFrag(route.primaryClass, null, route)
@@ -60,7 +60,7 @@ object RouteResolver {
         if (cls == null) return null
 
         var fragment: Fragment? = null
-
+        println("CLASS " + cls.name)
         if (ProfileFragment::class.java.isAssignableFrom(cls)) {
             fragment = ProfileFragment()
         } else if (CourseBrowserFragment::class.java.isAssignableFrom(cls)) {
@@ -174,7 +174,10 @@ object RouteResolver {
             fragment = FullscreenInternalWebViewFragment.newInstance(route.arguments)
         } else if (InternalWebViewFragment::class.java.isAssignableFrom(cls)) {
             fragment = InternalWebViewFragment.newInstance(route.arguments)
-        }//NOTE: These should remain at or near the bottom to give fragments that extend InternalWebViewFragment the chance first
+            //NOTE: These should remain at or near the bottom to give fragments that extend InternalWebViewFragment the chance first
+        } else if (UchprocPointJournal::class.java.isAssignableFrom(cls)){
+           fragment = UchprocPointJournal.newInstance(canvasContext!!)
+        }
 
         return fragment as Type?
     }

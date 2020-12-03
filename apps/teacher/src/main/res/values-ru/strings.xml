@@ -25,6 +25,7 @@
     <string name="tab_assignments">Задания</string>
     <string name="tab_profile">Профиль</string>
     <string name="tab_people">Люди</string>
+    <string name="tab_point_journal">Еженедельный баллы</string>
     <string name="tab_quizzes">Тесты</string>
     <string name="tab_discussions">Дискуссии</string>
     <string name="tab_announcements">Объявления</string>
@@ -63,6 +64,9 @@
     <!-- Navigation Drawer -->
     <string name="navigation_drawer_open">Открыть панель навигации</string>
     <string name="navigation_drawer_close">Закрыть панель навигации</string>
+
+    <!-- Uchproc -->
+    <string name="academic_weeks">Учебный недели</string>
 
     <!-- Compose Message -->
     <string name="no_subject">(нет субъекта)</string>

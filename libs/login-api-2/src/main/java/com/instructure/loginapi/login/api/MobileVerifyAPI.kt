@@ -39,6 +39,8 @@ object MobileVerifyAPI {
     }
 
     private fun getAuthenticationRetrofit(domain: String?) : Retrofit {
+            println("RETROFIT User-Agent " + ApiPrefs.userAgent)
+            println("DOMAIN IS" + domain)
             val httpClient = OkHttpClient.Builder()
                 .addInterceptor { chain ->
                     val request = chain.request().newBuilder()
@@ -55,10 +57,12 @@ object MobileVerifyAPI {
             // We only want to switch over to the beta mobile verify domain if the remote firebase config is true
             val baseUrl = if (mobileVerifyBetaEnabled && domain?.contains(".beta.") == true) {
                 "https://canvas.beta.instructure.com/api/v1/"
+            }else if (domain?.contains("isu.") == true)   {
+                "https://isu.tspu.tj/api/v1/"
             } else {
                 "https://canvas.instructure.com/api/v1/"
             }
-
+            println("URL " + baseUrl)
             return Retrofit.Builder()
                     .baseUrl(baseUrl)
                     .client(httpClient)
@@ -75,6 +79,10 @@ object MobileVerifyAPI {
             return
         }
         val oAuthInterface = getAuthenticationRetrofit(domain).create(OAuthInterface::class.java)
+        println("INTERFACE IS " + oAuthInterface.toString())
+        println("AUTH START VERIF!!!")
+        println(domain)
+        println("USER AGENT IS " + ApiPrefs.userAgent)
         oAuthInterface.mobileVerify(domain, ApiPrefs.userAgent).enqueue(callback)
     }
 }

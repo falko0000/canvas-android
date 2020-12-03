@@ -95,7 +95,7 @@
                     android:id="@+id/middleTopDivider"
                     android:layout_width="match_parent"
                     android:layout_height="?android:actionBarSize"
-                    android:background="@color/divider"/>
+                    android:background="@color/divider" />
 
                 <View
                     android:id="@+id/middleBottomDivider"

@@ -277,7 +277,6 @@ class AssignmentSubmissionListFragment : BaseSyncFragment<
                     EventBus.getDefault().post(SubmissionFilterChangedEvent(keys[idx]))
                 }
                 dialog.show(requireActivity().supportFragmentManager, RadioButtonDialog::class.java.simpleName)
-
             }
             R.id.filterBySection -> {
                 //let the user select the course/group they want to see

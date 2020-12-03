@@ -316,6 +316,7 @@ class SpeedGraderActivity : BasePresenterActivity<SpeedGraderPresenter, SpeedGra
             return Intent(context, SpeedGraderActivity::class.java).apply {
                 if(!route.arguments.isEmpty) {
                     putExtras(route.arguments)
+                    println(route.arguments)
                 } else {
                     // Try to get the information from the route that this activity needs. This happens
                     // when we come from a push notification

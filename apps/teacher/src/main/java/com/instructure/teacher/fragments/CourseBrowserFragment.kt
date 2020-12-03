@@ -86,6 +86,8 @@ class CourseBrowserFragment : BaseSyncFragment<
             Tab.DISCUSSIONS_ID,
             Tab.ANNOUNCEMENTS_ID,
             Tab.PEOPLE_ID,
+            Tab.POINTS_ID,
+            Tab.ATTENDANCE_ID,
             Tab.FILES_ID,
             Tab.PAGES_ID,
             Tab.MODULES_ID,
@@ -218,6 +220,14 @@ class CourseBrowserFragment : BaseSyncFragment<
                 Tab.PEOPLE_ID -> RouteMatcher.route(
                     requireContext(),
                     Route(PeopleListFragment::class.java, presenter.canvasContext)
+                )
+                Tab.POINTS_ID -> RouteMatcher.route(
+                        requireContext(),
+                        Route(UchprocPointJournal::class.java, presenter.canvasContext)
+                )
+                Tab.ATTENDANCE_ID -> RouteMatcher.route(
+                        requireContext(),
+                        Route(PeopleListFragment::class.java, presenter.canvasContext)
                 )
                 Tab.FILES_ID -> {
                     val args = FileListFragment.makeBundle(presenter.canvasContext)

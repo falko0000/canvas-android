@@ -184,6 +184,8 @@ object RouteMatcher : BaseRouteMatcher() {
             handleMediaRoute(context, route)
         } else if (route.routeContext === RouteContext.SPEED_GRADER) {
             handleSpeedGraderRoute(context, route)
+        }else if(route.routeContext === RouteContext.WEEK_STUDENTS_POINT){
+            handleWeekStudentsPointRoute(context, route)
         } else if (context.resources.getBoolean(R.bool.isDeviceTablet)) {
             handleTabletRoute(context, route)
         } else {
@@ -257,6 +259,11 @@ object RouteMatcher : BaseRouteMatcher() {
     private fun handleSpeedGraderRoute(context: Context, route: Route) {
         Logger.i("RouteMatcher:handleSpeedGraderRoute()")
         context.startActivity(SpeedGraderActivity.createIntent(context, route))
+    }
+
+    private fun handleWeekStudentsPointRoute(context: Context, route: Route){
+        Logger.i("RouteMatcher:handleWeekStudentsPointRoute()")
+        context.startActivity(WeekStudentsPointActivity.createIntent(context, route))
     }
 
     private fun handleWebViewRoute(context: Context, route: Route) {

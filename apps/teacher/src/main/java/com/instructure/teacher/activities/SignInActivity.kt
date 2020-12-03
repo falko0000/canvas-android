@@ -43,6 +43,7 @@ class SignInActivity : BaseLoginSignInActivity() {
         fun createIntent(context: Context?, accountDomain: AccountDomain?): Intent {
             val intent = Intent(context, SignInActivity::class.java)
             val extras = Bundle()
+            println("ACCOUNT DOMAIN IS " + accountDomain)
             extras.putParcelable(ACCOUNT_DOMAIN, accountDomain)
             intent.putExtras(extras)
             return intent
