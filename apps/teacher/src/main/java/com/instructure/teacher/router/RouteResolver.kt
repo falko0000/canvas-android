@@ -177,6 +177,8 @@ object RouteResolver {
             //NOTE: These should remain at or near the bottom to give fragments that extend InternalWebViewFragment the chance first
         } else if (UchprocPointJournal::class.java.isAssignableFrom(cls)){
            fragment = UchprocPointJournal.newInstance(canvasContext!!)
+        } else if (UchprocPointStudentsJournal::class.java.isAssignableFrom(cls)){
+            fragment = UchprocPointStudentsJournal.newInstance(canvasContext!!, route.arguments)
         }
 
         return fragment as Type?

@@ -64,10 +64,6 @@
     <!-- Navigation Drawer -->
     <string name="navigation_drawer_open">Открыть панель навигации</string>
     <string name="navigation_drawer_close">Закрыть панель навигации</string>
-
-    <!-- Uchproc -->
-    <string name="academic_weeks">Учебный недели</string>
-
     <!-- Compose Message -->
     <string name="no_subject">(нет субъекта)</string>
     <string name="compose_message">Написать сообщение</string>
@@ -918,4 +914,12 @@
     <string name="gauge">Gauge</string>
     <string name="ltiLaunchFailure">В данный момент загрузка этого LTI невозможна.</string>
     <string name="downloading">Выполняется скачивание&#8230;</string>
+    <!-- Uchproc -->
+    <string name="academic_weeks">Учебный недели</string>
+    <string name="lecture_attendance">Лекция-посещаемость</string>
+    <string name="practical_attendance">Сем-прак посещаемость</string>
+    <string name="practical_activity">Сем-прак деятельность</string>
+    <string name="kmdro_attendance">СРСРП посещаемость</string>
+    <string name="kmdro_activity">СРСРП деятельность</string>
+    <string name="kmd">СРС</string>
 </resources>

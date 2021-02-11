@@ -33,8 +33,8 @@ abstract class SyncRecyclerAdapter<
         MODEL : CanvasComparable<*>,
         HOLDER : RecyclerView.ViewHolder,
         VIEW : SyncManager<MODEL>>(
-    context: Context,
-    private val presenter: SyncPresenter<MODEL, VIEW>
+        context: Context,
+        private val presenter: SyncPresenter<MODEL, VIEW>
 ) : RecyclerView.Adapter<HOLDER>() {
 
     abstract fun bindHolder(model: MODEL, holder: HOLDER, position: Int)

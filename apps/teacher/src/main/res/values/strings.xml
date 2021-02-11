@@ -65,8 +65,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <!-- Uchproc -->
-    <string name="academic_weeks">Academic weeks</string>
     <!-- Compose Message -->
     <string name="no_subject">(no subject)</string>
     <string name="compose_message">Compose message</string>
@@ -899,4 +897,12 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+    <!-- Uchproc -->
+    <string name="academic_weeks">Academic weeks</string>
+    <string name="lecture_attendance">Lecture attendance</string>
+    <string name="practical_attendance">Practical attendance</string>
+    <string name="practical_activity">Practical activity</string>
+    <string name="kmdro_attendance">KMDRO attendance</string>
+    <string name="kmdro_activity">KMDRO activity</string>
+    <string name="kmd">KMD</string>
 </resources>

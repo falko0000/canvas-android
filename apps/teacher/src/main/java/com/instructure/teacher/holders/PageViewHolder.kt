@@ -45,7 +45,6 @@ class PageViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         } else {
             updatedDate.setGone()
         }
-
         statusIndicator.setVisible(page.frontPage)
 
         // set the content description on the container so we can tell the user that it is published as the last piece of information. When a content description is on a container

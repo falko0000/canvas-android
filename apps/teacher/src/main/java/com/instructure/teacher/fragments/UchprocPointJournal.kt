@@ -106,10 +106,8 @@ class UchprocPointJournal : BaseSyncFragment<PointJournalGroup, PointJournalPres
                     showToast(R.string.errorIsDesigner)
                     return
                 }
-                val bundle = WeekStudentsPointActivity.makeBundle(presenter.canvasContext.id, presenter.mPointJournal!! , position)
-                RouteMatcher.route(requireContext(), Route(bundle, RouteContext.WEEK_STUDENTS_POINT))
-               /* val bundle = StudentContextFragment.makeBundle(model.id, canvasContext.id, true)
-                RouteMatcher.route(requireContext(), Route(null, StudentContextFragment::class.java, canvasContext, bundle))*/
+               val bundle = UchprocPointStudentsJournal.makeBundle(position, presenter.getSelectedValue(), presenter.mPointJournal!!)
+                RouteMatcher.route(requireContext(), Route(null, UchprocPointStudentsJournal::class.java, canvasContext, bundle))
             }
         })
     }
@@ -117,8 +115,8 @@ class UchprocPointJournal : BaseSyncFragment<PointJournalGroup, PointJournalPres
     @Suppress("unused")
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onPointJournalFilterChanged(event: PointJournalFilterChangedEvent) {
-            setFilter(event.filterIndex)
-        }
+        setFilter(event.filterIndex)
+    }
 
     private fun setFilter(filterIndex: Int = -1){
         presenter.setFilter(filterIndex)

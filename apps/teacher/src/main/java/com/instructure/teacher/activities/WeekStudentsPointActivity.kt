@@ -10,10 +10,13 @@ import com.instructure.interactions.router.RouterParams
 import com.instructure.pandautils.activities.BasePresenterActivity
 import com.instructure.pandautils.utils.Const
 import com.instructure.teacher.R
+import com.instructure.teacher.adapters.WeekStudentsPointContentAdapter
 import com.instructure.teacher.factory.WeekStudentsPointPresenterFactory
 import com.instructure.teacher.presenters.WeekStudentsPointPresenter
 import com.instructure.teacher.viewinterface.WeekStudentsPointView
 import instructure.androidblueprint.PresenterFactory
+import kotlinx.android.synthetic.main.activity_speedgrader.*
+import kotlinx.android.synthetic.main.activity_week_students_point.*
 import java.util.ArrayList
 
 class WeekStudentsPointActivity : BasePresenterActivity<WeekStudentsPointPresenter, WeekStudentsPointView>(), WeekStudentsPointView {
@@ -21,8 +24,6 @@ class WeekStudentsPointActivity : BasePresenterActivity<WeekStudentsPointPresent
     private val courseId: Long by lazy { intent.extras!!.getLong(Const.COURSE_ID) }
     private val pointJournal: PointJournal? by lazy { intent.extras!!.getParcelable<PointJournal>(Const.UCHPROC_POINT_JOURNAL) }
     private val initialSelection: Int by lazy { intent.extras!!.getInt(Const.SELECTED_ITEM, 0) }
-    private var currentSelection = 0
-    private var previousSelection = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +34,7 @@ class WeekStudentsPointActivity : BasePresenterActivity<WeekStudentsPointPresent
 
     override fun onReadySetGo(presenter: WeekStudentsPointPresenter) {
         presenter.setupData()
+        onDataSet(pointJournal!!)
     }
 
     override fun getPresenterFactory() = WeekStudentsPointPresenterFactory(courseId, pointJournal!!)
@@ -40,11 +42,20 @@ class WeekStudentsPointActivity : BasePresenterActivity<WeekStudentsPointPresent
     override fun onPresenterPrepared(presenter: WeekStudentsPointPresenter) = Unit
 
     override fun onDataSet(pointJournal: PointJournal) {
-
+        val adapter = WeekStudentsPointContentAdapter(pointJournal)
+        studentPointContentPager.adapter = adapter
+        studentPointContentPager.currentItem = initialSelection
     }
 
     override fun onErrorSettingData() {
         //TODO("Not yet implemented")
+    }
+    fun enableViewPager() {
+        submissionContentPager.isPagingEnabled = true
+    }
+
+    fun disableViewPager() {
+        submissionContentPager.isPagingEnabled = false
     }
 
     companion object {

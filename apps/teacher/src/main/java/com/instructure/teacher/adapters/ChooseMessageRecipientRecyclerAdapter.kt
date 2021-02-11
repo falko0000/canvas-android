@@ -26,7 +26,6 @@ import com.instructure.teacher.interfaces.RecipientAdapterCallback
 import com.instructure.teacher.presenters.ChooseRecipientsPresenter
 import com.instructure.teacher.viewinterface.ChooseRecipientsView
 
-import instructure.androidblueprint.SyncPresenter
 import instructure.androidblueprint.SyncRecyclerAdapter
 
 class ChooseMessageRecipientRecyclerAdapter(

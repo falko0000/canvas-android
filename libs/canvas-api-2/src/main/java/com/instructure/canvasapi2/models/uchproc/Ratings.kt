@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Ratings(
         @SerializedName("first")
-        val firstReting: ArrayList<RatingSetting>? = ArrayList(),
+        val firstReting: ArrayList<RatingSetting> = ArrayList(),
         @SerializedName("second")
-        val secondReting: ArrayList<RatingSetting>? = ArrayList()
+        val secondReting: ArrayList<RatingSetting> = ArrayList()
 ): CanvasModel<Ratings>()

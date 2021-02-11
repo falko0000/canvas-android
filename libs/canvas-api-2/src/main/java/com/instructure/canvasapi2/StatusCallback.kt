@@ -16,6 +16,7 @@
  */
 package com.instructure.canvasapi2
 
+import com.instructure.canvasapi2.models.uchproc.PointJournal
 import com.instructure.canvasapi2.utils.APIHelper
 import com.instructure.canvasapi2.utils.ApiType
 import com.instructure.canvasapi2.utils.LinkHeaders

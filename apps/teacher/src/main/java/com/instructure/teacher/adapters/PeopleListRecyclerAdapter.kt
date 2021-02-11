@@ -26,7 +26,6 @@ import com.instructure.teacher.interfaces.AdapterToFragmentCallback
 import com.instructure.teacher.presenters.PeopleListPresenter
 import com.instructure.teacher.viewinterface.PeopleListView
 
-import instructure.androidblueprint.SyncPresenter
 import instructure.androidblueprint.SyncRecyclerAdapter
 
 

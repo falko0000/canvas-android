@@ -28,7 +28,6 @@ import com.instructure.teacher.interfaces.MessageAdapterCallback
 import com.instructure.teacher.presenters.MessageThreadPresenter
 import com.instructure.teacher.viewinterface.MessageThreadView
 
-import instructure.androidblueprint.SyncPresenter
 import instructure.androidblueprint.SyncRecyclerAdapter
 
 

@@ -7,9 +7,9 @@ import com.instructure.canvasapi2.models.User
 import com.instructure.canvasapi2.models.uchproc.PointJournal
 import com.instructure.canvasapi2.models.uchproc.PointJournalGroup
 import com.instructure.canvasapi2.models.uchproc.RatingSetting
-import com.instructure.canvasapi2.utils.weave.awaitApis
-import com.instructure.canvasapi2.utils.weave.catch
-import com.instructure.canvasapi2.utils.weave.tryWeave
+import com.instructure.canvasapi2.models.uchproc.WeekPoints
+import com.instructure.canvasapi2.utils.Logger
+import com.instructure.canvasapi2.utils.weave.*
 import com.instructure.teacher.viewinterface.PointJournalView
 import instructure.androidblueprint.SyncPresenter
 import kotlinx.coroutines.Job
@@ -23,6 +23,7 @@ class PointJournalPresenter(val canvasContext: CanvasContext) : SyncPresenter<Po
     var mApiCalls: Job? = null
     private var mSelectedValue: Int = -1
     private var mWeeksNumber: ArrayList<Int> = ArrayList()
+    private var mUpdateStudentPoints: Job? = null
 
     override fun loadData(forceNetwork: Boolean) {
         //if (data.size() > 0 && !forceNetwork) return
@@ -69,6 +70,21 @@ class PointJournalPresenter(val canvasContext: CanvasContext) : SyncPresenter<Po
             viewCallback?.checkIfEmpty()
         }
     }
+    fun updateStudentPoints(courseId: Long, position: Int, index: Int, reting: Int, weekPoints: WeekPoints){
+        mUpdateStudentPoints = tryWeave {
+            //println(weekPoints.toString())
+                // Save the quiz data
+            println("index = " + index)
+              val studentId = mPointJournal!!.points[position].studentId
+              val week: WeekPoints = awaitApi { PointJournalManager.updateStudentPoints(courseId, studentId, weekPoints, true, it) }
+            if (reting == 1)
+                mPointJournal!!.points[position].rating!!.firstRatingPoints!!.pointWeeks!![index] = week
+            else
+                mPointJournal!!.points[position].rating!!.secondRatingPoints!!.pointWeeks!![index] = week
+            } catch{
+                Logger.e("Response Is " + it.message)
+            }
+        }
 
     private fun fillWeeks() {
         for (week in getFirstRetingSettings()!!){

@@ -22,7 +22,6 @@ import com.instructure.canvasapi2.models.Tab
 import com.instructure.teacher.holders.CourseBrowserViewHolder
 import com.instructure.teacher.presenters.CourseBrowserPresenter
 import com.instructure.teacher.viewinterface.CourseBrowserView
-import instructure.androidblueprint.SyncPresenter
 import instructure.androidblueprint.SyncRecyclerAdapter
 
 class CourseBrowserAdapter(
